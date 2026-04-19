@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salad Bowl in CBD Area – Singapore</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-dark: #1a2e1a;
+    --green-mid: #2d5a27;
+    --green-accent: #4a8c3f;
+    --green-light: #7dbe6a;
+    --cream: #f7f3eb;
+    --cream-dark: #ede7d8;
+    --orange-accent: #d47c3a;
+    --text-dark: #1a1a1a;
+    --text-mid: #444;
+    --text-light: #888;
+    --sidebar-w: 280px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+
+  /* ── MOBILE TOP BAR ── */
+  .mobile-topbar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--green-dark);
+    color: #fff;
+    padding: 0 16px;
+    height: 56px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-topbar .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    letter-spacing: .04em;
+  }
+  .hamburger {
+    background: none; border: none; cursor: pointer;
+    display: flex; flex-direction: column; gap: 5px; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #fff; border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    width: var(--sidebar-w);
+    background: var(--green-dark);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+  .sidebar-header {
+    padding: 40px 24px 28px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .sidebar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    letter-spacing: .02em;
+    margin-bottom: 6px;
+  }
+  .sidebar-sub {
+    font-size: .72rem;
+    color: var(--green-light);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .sidebar-section-label {
+    padding: 20px 24px 8px;
+    font-size: .65rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green-light);
+    font-weight: 500;
+  }
+  .sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 24px;
+    color: rgba(255,255,255,.75);
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 400;
+    transition: background .2s, color .2s;
+    border-left: 3px solid transparent;
+    line-height: 1.35;
+  }
+  .sidebar nav a:hover, .sidebar nav a.active {
+    background: rgba(255,255,255,.07);
+    color: #fff;
+    border-left-color: var(--green-light);
+  }
+  .sidebar nav a .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green-light); flex-shrink: 0;
+  }
+  .sidebar-dist {
+    font-size: .68rem;
+    color: rgba(255,255,255,.4);
+    margin-left: auto;
+    white-space: nowrap;
+  }
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    font-size: .72rem;
+    color: rgba(255,255,255,.4);
+    line-height: 1.6;
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    margin-left: var(--sidebar-w);
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 480px;
+    overflow: hidden;
+    background: var(--green-dark);
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: .45;
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(26,46,26,.6) 0%, rgba(45,90,39,.3) 100%);
+  }
+  .hero-content {
+    position: absolute;
+    bottom: 56px; left: 56px;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    color: #fff;
+    line-height: 1.1;
+    max-width: 560px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--green-light);
+  }
+  .hero-meta {
+    margin-top: 16px;
+    color: rgba(255,255,255,.65);
+    font-size: .85rem;
+    letter-spacing: .04em;
+  }
+
+  /* ── CONTENT AREA ── */
+  .content {
+    padding: 48px 56px;
+    max-width: 900px;
+  }
+
+  /* ── ZONE DIVIDER ── */
+  .zone-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 28px;
+  }
+  .zone-header:first-of-type { margin-top: 0; }
+  .zone-tag {
+    background: var(--green-dark);
+    color: var(--green-light);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .zone-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--green-dark);
+  }
+  .zone-line {
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    margin-bottom: 20px;
+    transition: box-shadow .25s, transform .25s;
+    scroll-margin-top: 24px;
+  }
+  .card:hover {
+    box-shadow: 0 6px 28px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+  }
+  .card-img-wrap {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream-dark);
+  }
+  .card-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .4s;
+  }
+  .card:hover .card-img { transform: scale(1.05); }
+  .card-rank {
+    position: absolute;
+    top: 12px; left: 12px;
+    background: var(--green-dark);
+    color: var(--green-light);
+    font-family: 'DM Mono', monospace;
+    font-size: .72rem;
+    padding: 4px 9px;
+    border-radius: 4px;
+    letter-spacing: .06em;
+  }
+  .card-stars {
+    position: absolute;
+    bottom: 10px; left: 12px;
+    color: #f5b400;
+    font-size: .8rem;
+    letter-spacing: .03em;
+    background: rgba(0,0,0,.55);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .card-body {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--green-dark);
+    line-height: 1.3;
+  }
+  .card-name .card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    color: var(--green-accent);
+    display: block;
+    margin-bottom: 2px;
+    letter-spacing: .08em;
+  }
+  .card-desc {
+    font-size: .82rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    flex: 1;
+  }
+  .card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: .72rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .tag-price {
+    background: #f0f7ee;
+    color: var(--green-mid);
+    border: 1px solid #c8e6c0;
+  }
+  .tag-takeaway {
+    background: #fff8ee;
+    color: var(--orange-accent);
+    border: 1px solid #f5d9a8;
+  }
+  .card-address {
+    font-size: .75rem;
+    color: var(--text-light);
+    line-height: 1.5;
+  }
+  .card-address a {
+    color: var(--green-accent);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .card-address a:hover { border-bottom-color: var(--green-accent); }
+  .map-icon { margin-right: 3px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-left: var(--sidebar-w);
+    background: var(--green-dark);
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: .78rem;
+    line-height: 1.8;
+  }
+  .site-footer a { color: var(--green-light); text-decoration: none; }
+
+  /* ── MOBILE OVERLAY ── */
+  .sidebar-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 90;
+    background: rgba(0,0,0,.5);
+  }
+  .sidebar-overlay.show { display: block; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .mobile-topbar { display: flex; }
+    .sidebar {
+      left: calc(-1 * var(--sidebar-w));
+      top: 56px;
+      transition: left .3s ease;
+    }
+    .sidebar.open { left: 0; }
+    .main { margin-left: 0; padding-top: 56px; }
+    .site-footer { margin-left: 0; }
+    .hero { height: 340px; }
+    .hero-content { bottom: 32px; left: 28px; }
+    .content { padding: 32px 20px; }
+    .card { grid-template-columns: 1fr; }
+    .card-img-wrap { height: 200px; }
+    .zone-title { font-size: 1.2rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 1.8rem; }
+    .content { padding: 24px 16px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card { animation: fadeUp .4s ease both; }
+  .card:nth-child(1)  { animation-delay: .05s; }
+  .card:nth-child(2)  { animation-delay: .1s; }
+  .card:nth-child(3)  { animation-delay: .15s; }
+  .card:nth-child(4)  { animation-delay: .2s; }
+  .card:nth-child(5)  { animation-delay: .25s; }
+  .card:nth-child(6)  { animation-delay: .3s; }
+</style>
+</head>
+<body>
+
+<!-- MOBILE TOP BAR -->
+<div class="mobile-topbar">
+  <span class="logo-text">🥗 Salad Bowl CBD</span>
+  <button class="hamburger" id="hamburgerBtn" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">🥗 Salad Bowl<br>in CBD Area</div>
+    <div class="sidebar-sub">Singapore · Marina One周辺</div>
+  </div>
+
+  <div class="sidebar-section-label">📍 Marina One内</div>
+  <nav>
+    <a href="#s01"><span class="dot"></span>① Grains &amp; Co.<span class="sidebar-dist">0分</span></a>
+    <a href="#s02"><span class="dot"></span>② Supergreen<span class="sidebar-dist">0分</span></a>
+  </nav>
+
+  <div class="sidebar-section-label">🚶 徒歩3〜5分</div>
+  <nav>
+    <a href="#s03"><span class="dot"></span>③ Super Simple<span class="sidebar-dist">3分</span></a>
+  </nav>
+
+  <div class="sidebar-section-label">🚶 徒歩5〜8分 (MBLM)</div>
+  <nav>
+    <a href="#s04"><span class="dot"></span>④ Peyala<span class="sidebar-dist">5分</span></a>
+    <a href="#s05"><span class="dot"></span>⑤ SaladStop!<span class="sidebar-dist">6分</span></a>
+    <a href="#s06"><span class="dot"></span>⑥ HEYBO<span class="sidebar-dist">6分</span></a>
+    <a href="#s07"><span class="dot"></span>⑦ Salad Story<span class="sidebar-dist">7分</span></a>
+    <a href="#s08"><span class="dot"></span>⑧ Omnivore<span class="sidebar-dist">7分</span></a>
+  </nav>
+
+  <div class="sidebar-section-label">🚶 徒歩8〜12分 (Asia Sq)</div>
+  <nav>
+    <a href="#s09"><span class="dot"></span>⑨ Avorush<span class="sidebar-dist">10分</span></a>
+    <a href="#s10"><span class="dot"></span>⑩ Green Kitchen+<span class="sidebar-dist">10分</span></a>
+    <a href="#s11"><span class="dot"></span>⑪ Toss &amp; Turn<span class="sidebar-dist">11分</span></a>
+  </nav>
+
+  <div class="sidebar-section-label">🚶 徒歩15分以上</div>
+  <nav>
+    <a href="#s12"><span class="dot"></span>⑫ Grain Traders<span class="sidebar-dist">15分</span></a>
+    <a href="#s13"><span class="dot"></span>⑬ The Salad Shop<span class="sidebar-dist">20分</span></a>
+    <a href="#s14"><span class="dot"></span>⑭ The Daily Cut<span class="sidebar-dist">20分</span></a>
+  </nav>
+
+  <div class="sidebar-footer">
+    Marina One周辺 全14店舗<br>
+    全店テイクアウト対応 ✅<br>
+    平日のみ営業（一部土日あり）
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-img"
+      src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1400&auto=format&fit=crop&q=80"
+      alt="Healthy salad bowl" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Singapore CBD Guide</span>
+      <h1>Salad Bowl<br>in <em>CBD Area</em></h1>
+      <p class="hero-meta">Marina One周辺 厳選14店舗 — 近い順</p>
+    </div>
+  </section>
+
+  <div class="content">
+
+    <!-- ===== ZONE 1: Marina One内 ===== -->
+    <div class="zone-header">
+      <span class="zone-tag">🏠 Marina One内</span>
+      <span class="zone-title">徒歩0分</span>
+      <span class="zone-line"></span>
+    </div>
+
+    <!-- Card 01 -->
+    <article class="card" id="s01">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&auto=format&fit=crop&q=80"
+          alt="Grains and Co salad bowl" loading="lazy" />
+        <span class="card-rank">#01</span>
+        <span class="card-stars">⭐ 4.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Marina One · B2-33</span>
+          Grains &amp; Co.
+        </div>
+        <p class="card-desc">グレイン・穀物ベースのカスタムボウル。スービッドチキン・白身魚など多彩なタンパク質が揃う。朝7:30から営業しており朝食にも対応。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$10〜13</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可（Deliveroo対応）</span>
+        </div>
+        <div class="card-address">
+          📍 5 Straits View, The Heart #B2-33<br>
+          <a href="https://maps.google.com/?cid=11014114952155869895" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 02 -->
+    <article class="card" id="s02">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&auto=format&fit=crop&q=80"
+          alt="Supergreen salad bowl CBD" loading="lazy" />
+        <span class="card-rank">#02</span>
+        <span class="card-stars">⭐ 3.9</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Marina One · B2-52</span>
+          Supergreen
+        </div>
+        <p class="card-desc">ベース2種選択可のシンプルカスタムボウル。スービッド鶏胸肉が柔らかくCBDコスパ最強との声多数。回転が速くランチでも待ちが少ない。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$10〜11</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 5 Straits View, East Tower #B2-52<br>
+          <a href="https://maps.google.com/?cid=18248781983953370017" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== ZONE 2: 3-5min ===== -->
+    <div class="zone-header">
+      <span class="zone-tag">🚶 徒歩3〜5分</span>
+      <span class="zone-title">IOI Central Boulevard</span>
+      <span class="zone-line"></span>
+    </div>
+
+    <!-- Card 03 -->
+    <article class="card" id="s03">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&fit=crop&q=80"
+          alt="Super Simple protein bowl" loading="lazy" />
+        <span class="card-rank">#03</span>
+        <span class="card-stars">⭐ 4.0</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">IOI Central Blvd · #01-12</span>
+          Super Simple
+        </div>
+        <p class="card-desc">ローストチキン・ホールウィートパスタ・パンプキンなど素材感を活かしたシンプルボウル。Petiteセットからオーダー可能でカロリー管理向き。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$11.90〜13.40</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可（Deliveroo対応）</span>
+        </div>
+        <div class="card-address">
+          📍 2 Central Blvd #01-12, IOI Central Blvd Towers<br>
+          <a href="https://maps.google.com/?cid=5064596936177441492" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== ZONE 3: MBLM 5-8min ===== -->
+    <div class="zone-header">
+      <span class="zone-tag">🚶 徒歩5〜8分</span>
+      <span class="zone-title">Marina Bay Link Mall &amp; The Sail</span>
+      <span class="zone-line"></span>
+    </div>
+
+    <!-- Card 04 -->
+    <article class="card" id="s04">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&auto=format&fit=crop&q=80"
+          alt="Indian fusion salad bowl" loading="lazy" />
+        <span class="card-rank">#04</span>
+        <span class="card-stars">⭐ 4.6</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">MBLM · B2-32</span>
+          Peyala
+        </div>
+        <p class="card-desc">インド風フュージョンのヘルシーボウル。タンドーリ・バターチキン・パニール（インドチーズ）など他店にない個性的なプロテインが揃う。このエリアで高評価。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$12〜15</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 8A Marina Blvd B2-32, Marina Bay Link Mall<br>
+          <a href="https://maps.google.com/?cid=10336412784065587776" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 05 -->
+    <article class="card" id="s05">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&auto=format&fit=crop&q=80"
+          alt="SaladStop salad bowl" loading="lazy" />
+        <span class="card-rank">#05</span>
+        <span class="card-stars">⭐ 3.8</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">MBLM · B2-13</span>
+          SaladStop!
+        </div>
+        <p class="card-desc">60種以上の具材から自由に組み合わせる大手チェーン。早朝8時から営業しており、ブレッドスティック付きが好評。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$16〜20</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 8A Marina Blvd #B2-13, Marina Bay Link Mall<br>
+          <a href="https://maps.google.com/?cid=15325115532193782855" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 06 -->
+    <article class="card" id="s06">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1512003867696-6d5ce6835040?w=600&auto=format&fit=crop&q=80"
+          alt="HEYBO vegetarian bowl" loading="lazy" />
+        <span class="card-rank">#06</span>
+        <span class="card-stars">⭐ 3.5</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">MBLM · B2-41/42</span>
+          HEYBO
+        </div>
+        <p class="card-desc">植物性具材が充実したカスタムボウル。ファラフェル・カレーカリフラワー・スパイスチックピーなどベジタリアン対応も豊富。オンライン注文で10%割引あり。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$10〜15</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 8A Marina Blvd #B2-41/42, Marina Bay Link Mall<br>
+          <a href="https://maps.google.com/?cid=10894063406351662845" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 07 -->
+    <article class="card" id="s07">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&auto=format&fit=crop&q=80"
+          alt="Salad Story custom bowl" loading="lazy" />
+        <span class="card-rank">#07</span>
+        <span class="card-stars">⭐ 4.2</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">The Sail · B1-06</span>
+          Salad Story
+        </div>
+        <p class="card-desc">カスタムサラダボウル＆ラップの専門店。ドレッシングの種類が特に豊富で、食材のフレッシュさが高評価。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$10〜13</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 2 Marina Blvd #B1-06, The Sail<br>
+          <a href="https://maps.google.com/?cid=10474467989093306322" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 08 -->
+    <article class="card" id="s08">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600&auto=format&fit=crop&q=80"
+          alt="Omnivore tuna duck salad" loading="lazy" />
+        <span class="card-rank">#08</span>
+        <span class="card-stars">⭐ 3.7</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">The Sail · B1-08</span>
+          Omnivore
+        </div>
+        <p class="card-desc">S$12.90でツナタルタル・鴨肉など個性的なタンパク質が揃うコスパボウル。週3で通う常連客も多い隠れた名店。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$12.90〜</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 2 Marina Blvd #B1-08, The Sail<br>
+          <a href="https://maps.google.com/?cid=13824202651222732637" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== ZONE 4: Asia Square 8-12min ===== -->
+    <div class="zone-header">
+      <span class="zone-tag">🚶 徒歩8〜12分</span>
+      <span class="zone-title">Asia Square</span>
+      <span class="zone-line"></span>
+    </div>
+
+    <!-- Card 09 -->
+    <article class="card" id="s09">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=600&auto=format&fit=crop&q=80"
+          alt="Avorush Mediterranean bowl avocado" loading="lazy" />
+        <span class="card-rank">#09</span>
+        <span class="card-stars">⭐ 4.8 ★最高評価</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Asia Square Tower 2 · #02-23</span>
+          Avorush
+        </div>
+        <p class="card-desc">地中海スタイルのヘルシーボウル。キノア・ペストペンネなど豊富なベースに、モロッカンサーモン・カジャン豆腐など個性的な具材。全ボウルにアボカドボールが無料付き。1,300件超のレビューを誇るCBDの人気店。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$15〜18</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 12 Marina View #02-23, Asia Square Tower 2<br>
+          <a href="https://maps.google.com/?cid=5641929900355825349" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 10 -->
+    <article class="card" id="s10">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&auto=format&fit=crop&q=80"
+          alt="Green Kitchen fermented healthy bowl" loading="lazy" />
+        <span class="card-rank">#10</span>
+        <span class="card-stars">⭐ 4.7</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Asia Square Tower 2 · Floor 1</span>
+          Green Kitchen+
+        </div>
+        <p class="card-desc">キムチなど発酵食品入りのユニークなヘルシーボウル。ペルシャンチキン・ブリスケットなどこだわりのタンパク質。腸活志向の方に特におすすめ。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$18.80</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 12 Marina View, Tower 2 Floor 1, Asia Square<br>
+          <a href="https://maps.google.com/?cid=7668474763456487671" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 11 -->
+    <article class="card" id="s11">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1597692702556-7e88bccdcb50?w=600&auto=format&fit=crop&q=80"
+          alt="Toss and Turn salad" loading="lazy" />
+        <span class="card-rank">#11</span>
+        <span class="card-stars">⭐ 3.6</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Asia Square Tower 1 · #02-11</span>
+          Toss &amp; Turn
+        </div>
+        <p class="card-desc">Cedele系列のサラダ＆スープバー。エダマメや胡椒海老など変わり種トッピングが豊富なカスタムスタイル。朝7:30から営業。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$12〜16</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 8 Marina View #02-11, Asia Square Tower 1<br>
+          <a href="https://maps.google.com/?cid=10718485440482718471" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== ZONE 5: 15min+ ===== -->
+    <div class="zone-header">
+      <span class="zone-tag">🚶 徒歩15分以上</span>
+      <span class="zone-title">Raffles Place / Tanjong Pagar</span>
+      <span class="zone-line"></span>
+    </div>
+
+    <!-- Card 12 -->
+    <article class="card" id="s12">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?w=600&auto=format&fit=crop&q=80"
+          alt="Grain Traders premium bowl" loading="lazy" />
+        <span class="card-rank">#12</span>
+        <span class="card-stars">⭐ 4.4</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">CapitaGreen · #01-03</span>
+          Grain Traders
+        </div>
+        <p class="card-desc">グローバルフレーバーのプレミアムグレインボウル。ジャックフルーツ・和牛・シアードツナなど食材のクオリティが高い。ランチ後半は割引あり。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$15〜17.50</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 138 Market St #01-03, CapitaGreen<br>
+          <a href="https://maps.google.com/?cid=16906312743722636057" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 13 -->
+    <article class="card" id="s13">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600&auto=format&fit=crop&q=80"
+          alt="The Salad Shop Singapore classic" loading="lazy" />
+        <span class="card-rank">#13</span>
+        <span class="card-stars">⭐ 4.3</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Raffles Place · #01-20</span>
+          The Salad Shop
+        </div>
+        <p class="card-desc">2009年創業の老舗。ビーツフムス・キヌアボールなど個性的なトッピングでCBDワーカーに長く愛される定番店。シンガポール川を眺めながら食べられる。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$11.50〜14.50</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可</span>
+        </div>
+        <div class="card-address">
+          📍 80 Raffles Pl #01-20<br>
+          <a href="https://maps.google.com/?cid=10848802403879455393" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 14 -->
+    <article class="card" id="s14">
+      <div class="card-img-wrap">
+        <img class="card-img"
+          src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&auto=format&fit=crop&q=80"
+          alt="The Daily Cut protein bowl" loading="lazy" />
+        <span class="card-rank">#14</span>
+        <span class="card-stars">⭐ 4.1</span>
+      </div>
+      <div class="card-body">
+        <div class="card-name">
+          <span class="card-num">Guoco Tower · B2-16</span>
+          The Daily Cut
+        </div>
+        <p class="card-desc">高タンパクな肉系プロテインボウルの定番。草飼い牛・サーモン・グリルチキンなどマクロ管理対応。土日も営業している数少ない店舗。</p>
+        <div class="card-meta">
+          <span class="tag tag-price">💰 S$10.50〜</span>
+          <span class="tag tag-takeaway">📦 テイクアウト可（Deliveroo対応）</span>
+        </div>
+        <div class="card-address">
+          📍 7 Wallich St #B2-16, Guoco Tower<br>
+          <a href="https://maps.google.com/?cid=9584237594644845180" target="_blank">🗺 Google Mapで見る</a>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /content -->
+</main>
+
+<footer class="site-footer">
+  Salad Bowl in CBD Area — Singapore · Marina One周辺 全14店舗<br>
+  写真提供: <a href="https://unsplash.com" target="_blank">Unsplash</a>（著作権フリー） ·
+  店舗情報はGoogle Maps / 各種レビューサイトをもとに作成
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburgerBtn');
+  const sidebar   = document.getElementById('sidebar');
+  const overlay   = document.getElementById('sidebarOverlay');
+
+  function toggleSidebar(open) {
+    sidebar.classList.toggle('open', open);
+    overlay.classList.toggle('show', open);
+    hamburger.classList.toggle('open', open);
+  }
+
+  hamburger.addEventListener('click', () => toggleSidebar(!sidebar.classList.contains('open')));
+  overlay.addEventListener('click', () => toggleSidebar(false));
+
+  // Sidebar active link on scroll
+  const sections = document.querySelectorAll('.card[id]');
+  const navLinks = document.querySelectorAll('.sidebar nav a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.sidebar nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Close sidebar on nav link click (mobile)
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 900) toggleSidebar(false);
+    });
+  });
+</script>
+</body>
+</html>
