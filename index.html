@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBD サラダボール10選 | Singapore Healthy Eats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   ROOT & RESET
+════════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --bg:#070707;
+  --bg2:#0f0f0f;
+  --bg3:rgba(255,255,255,.028);
+  --paper:#EAE6DE;
+  --mid:rgba(234,230,222,.52);
+  --dim:rgba(234,230,222,.26);
+  --line:rgba(234,230,222,.08);
+  --gold:#C8A84B;
+  --green:#5DB87A;
+  --green2:rgba(93,184,122,.12);
+  --sidebar-w:260px;
+  --topbar-h:58px;
+}
+body{
+  background:var(--bg);
+  color:var(--paper);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  line-height:1.7;
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+button{cursor:pointer;font-family:inherit;}
+
+/* grain overlay */
+body::before{
+  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E");
+}
+
+/* ════════════════════════════════════════
+   REVEAL
+════════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:translateY(0);}
+.rv.d1{transition-delay:.08s;}.rv.d2{transition-delay:.16s;}.rv.d3{transition-delay:.24s;}.rv.d4{transition-delay:.32s;}
+.rl{opacity:0;transform:translateX(-24px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rl.in{opacity:1;transform:translateX(0);}
+
+/* ════════════════════════════════════════
+   LAYOUT: SIDEBAR + MAIN
+════════════════════════════════════════ */
+#layout{display:flex;min-height:100vh;}
+
+/* ────── DESKTOP SIDEBAR ────── */
+#sidebar{
+  position:fixed;top:0;left:0;bottom:0;
+  width:var(--sidebar-w);
+  background:rgba(7,7,7,.97);
+  backdrop-filter:blur(24px);
+  border-right:1px solid var(--line);
+  z-index:300;
+  display:flex;flex-direction:column;
+  overflow-y:auto;
+  scrollbar-width:none;
+}
+#sidebar::-webkit-scrollbar{display:none;}
+
+.sb-logo{
+  padding:28px 24px 20px;
+  border-bottom:1px solid var(--line);
+  flex-shrink:0;
+}
+.sb-logo-mark{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-weight:700;
+  color:var(--paper);letter-spacing:1px;
+  margin-bottom:4px;
+}
+.sb-logo-mark span{color:var(--green);}
+.sb-logo-sub{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);}
+
+.sb-section{padding:20px 0 8px 24px;font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(200,168,75,.6);}
+
+.sb-nav{flex:1;padding:8px 0;}
+.sb-item{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 24px;
+  font-size:12px;font-weight:400;color:var(--dim);
+  cursor:pointer;
+  transition:color .2s,background .2s;
+  border-left:2px solid transparent;
+  position:relative;
+}
+.sb-item:hover{color:var(--paper);background:rgba(255,255,255,.028);}
+.sb-item.active{color:var(--green);border-left-color:var(--green);background:var(--green2);}
+.sb-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:16px;font-weight:700;color:inherit;
+  opacity:.5;min-width:20px;
+}
+.sb-item.active .sb-num{opacity:1;}
+.sb-name{font-size:11px;line-height:1.3;}
+
+.sb-footer{
+  padding:20px 24px;border-top:1px solid var(--line);
+  font-size:10px;color:var(--dim);line-height:1.8;flex-shrink:0;
+}
+
+/* ────── MOBILE TOPBAR ────── */
+#topbar{
+  display:none;
+  position:fixed;top:0;left:0;right:0;
+  height:var(--topbar-h);z-index:300;
+  background:rgba(7,7,7,.97);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  align-items:center;justify-content:space-between;
+  padding:0 18px;
+}
+.tb-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:var(--paper);}
+.tb-logo span{color:var(--green);}
+#tb-toggle{background:none;border:none;color:var(--paper);font-size:22px;padding:4px;}
+#mob-drawer{
+  display:none;
+  position:fixed;top:var(--topbar-h);left:0;right:0;
+  background:rgba(7,7,7,.98);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+  z-index:299;
+  max-height:calc(100vh - var(--topbar-h));
+  overflow-y:auto;
+}
+#mob-drawer.open{display:block;}
+.dr-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 20px;border-bottom:1px solid var(--line);
+  font-size:12px;color:var(--dim);cursor:pointer;
+  transition:color .2s,background .2s;
+}
+.dr-item:hover{color:var(--paper);background:rgba(255,255,255,.025);}
+.dr-num{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);opacity:.5;min-width:24px;}
+
+/* ────── MAIN CONTENT ────── */
+#main{
+  margin-left:var(--sidebar-w);
+  flex:1;
+  position:relative;z-index:1;
+  min-width:0;
+}
+
+/* ════════════════════════════════════════
+   HERO SECTION
+════════════════════════════════════════ */
+#hero{
+  position:relative;height:100svh;min-height:580px;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+#hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1600&q=85') center 55%/cover no-repeat;
+  filter:brightness(.3) saturate(.75);
+  transform:scale(1.06);
+  transition:transform 9s ease;
+}
+#hero-bg.rdy{transform:scale(1);}
+.h-grad{
+  position:absolute;inset:0;
+  background:linear-gradient(170deg,transparent 20%,rgba(7,7,7,.6) 55%,var(--bg) 100%);
+}
+.h-inner{
+  position:relative;z-index:2;
+  padding:0 clamp(24px,4vw,60px) clamp(48px,7vh,88px);
+  width:100%;
+}
+.h-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:9px;letter-spacing:5px;color:rgba(93,184,122,.8);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.h-eyebrow::before{content:'';width:28px;height:1px;background:rgba(93,184,122,.5);}
+h1.hero-t{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(38px,6.5vw,86px);
+  font-weight:300;line-height:.95;
+  color:var(--paper);letter-spacing:-1.5px;
+  margin-bottom:10px;
+}
+h1.hero-t em{font-style:italic;color:var(--green);}
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(13px,1.8vw,19px);font-weight:300;
+  color:var(--mid);letter-spacing:4px;text-transform:uppercase;
+  margin-bottom:28px;
+}
+.hero-stats{display:flex;gap:clamp(20px,3.5vw,44px);flex-wrap:wrap;margin-bottom:clamp(24px,4vh,44px);}
+.hs{border-top:1px solid var(--line);padding-top:12px;min-width:80px;}
+.hs-v{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,34px);font-weight:700;color:var(--green);line-height:1;}
+.hs-l{font-size:9px;letter-spacing:2px;color:var(--dim);margin-top:4px;text-transform:uppercase;}
+.scroll-hint{display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:4px;color:var(--dim);text-transform:uppercase;}
+.scl{width:44px;height:1px;background:var(--line);overflow:hidden;position:relative;}
+.scl::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--green);animation:sl 2s ease infinite;}
+@keyframes sl{0%{left:-100%}100%{left:100%}}
+
+/* ════════════════════════════════════════
+   RANKING LIST SECTION
+════════════════════════════════════════ */
+.sec{padding:clamp(64px,9vh,110px) clamp(24px,4vw,60px);}
+.sec-alt{padding:clamp(64px,9vh,110px) clamp(24px,4vw,60px);background:var(--bg3);}
+.sec-lbl{font-size:9px;letter-spacing:5px;color:var(--green);text-transform:uppercase;margin-bottom:12px;}
+.sec-t{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,4vw,50px);font-weight:300;color:var(--paper);line-height:1.15;margin-bottom:8px;}
+.sec-t em{font-style:italic;color:var(--gold);}
+.sec-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--dim);margin-bottom:44px;}
+.sec-rule{width:32px;height:1px;background:var(--green);margin-bottom:44px;opacity:.7;}
+
+/* ranking list */
+.rank-list{display:flex;flex-direction:column;gap:2px;}
+.rank-item{
+  display:flex;align-items:center;gap:18px;
+  padding:14px 18px;
+  background:var(--bg3);
+  border:1px solid var(--line);
+  cursor:pointer;
+  transition:background .25s,border-color .25s;
+  text-decoration:none;
+}
+.rank-item:hover{background:rgba(93,184,122,.06);border-color:rgba(93,184,122,.25);}
+.rank-no{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;font-weight:700;
+  color:rgba(93,184,122,.28);
+  line-height:1;min-width:38px;flex-shrink:0;
+}
+.rank-info{flex:1;min-width:0;}
+.rank-name{font-size:14px;font-weight:500;color:var(--paper);margin-bottom:2px;}
+.rank-desc{font-size:11px;color:var(--dim);line-height:1.5;}
+.rank-price{
+  font-size:11px;font-weight:500;color:var(--green);
+  border:1px solid rgba(93,184,122,.3);padding:3px 10px;
+  flex-shrink:0;letter-spacing:.5px;
+}
+.rank-arrow{color:var(--dim);font-size:14px;flex-shrink:0;transition:color .2s,transform .2s;}
+.rank-item:hover .rank-arrow{color:var(--green);transform:translateX(4px);}
+
+/* ════════════════════════════════════════
+   SHOP DETAIL CARDS
+════════════════════════════════════════ */
+.shop-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0;
+  border:1px solid var(--line);
+  background:var(--bg2);
+  overflow:hidden;
+  margin-bottom:2px;
+  transition:border-color .3s;
+}
+.shop-card:hover{border-color:rgba(93,184,122,.22);}
+.shop-card.reverse{direction:rtl;}
+.shop-card.reverse > *{direction:ltr;}
+
+/* image side */
+.sc-img-wrap{position:relative;overflow:hidden;min-height:300px;}
+.sc-img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.55) saturate(.85);
+  transform:scale(1.06);
+  transition:transform .8s ease,filter .8s ease;
+  position:absolute;inset:0;
+}
+.shop-card:hover .sc-img{transform:scale(1);filter:brightness(.45) saturate(.8);}
+.sc-img-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(7,7,7,.4) 0%,transparent 60%);
+}
+.sc-num-badge{
+  position:absolute;top:16px;left:16px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:44px;font-weight:700;
+  color:rgba(93,184,122,.55);
+  line-height:1;letter-spacing:-1px;
+}
+.sc-credit{
+  position:absolute;bottom:8px;right:10px;
+  font-size:8px;color:rgba(255,255,255,.2);
+}
+
+/* content side */
+.sc-body{padding:clamp(20px,3.5vw,36px);display:flex;flex-direction:column;justify-content:space-between;}
+.sc-lbl{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(93,184,122,.65);margin-bottom:10px;}
+.sc-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(20px,3vw,32px);font-weight:600;
+  color:var(--paper);line-height:1.1;margin-bottom:12px;
+}
+.sc-rating{display:flex;align-items:center;gap:6px;margin-bottom:14px;}
+.stars{display:flex;gap:2px;}
+.star{font-size:12px;}
+.sc-rating-val{font-size:12px;font-weight:500;color:var(--gold);}
+.sc-desc{font-size:13px;color:var(--mid);line-height:1.85;margin-bottom:18px;flex:1;}
+.sc-price-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+.sc-price{
+  font-size:13px;font-weight:500;color:var(--green);
+  background:rgba(93,184,122,.1);
+  border:1px solid rgba(93,184,122,.25);
+  padding:4px 12px;letter-spacing:.5px;
+}
+.sc-links{display:flex;gap:8px;flex-wrap:wrap;}
+.sc-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  border:1px solid var(--line);color:var(--dim);
+  padding:5px 12px;
+  transition:border-color .25s,color .25s,background .25s;
+}
+.sc-link:hover{border-color:var(--green);color:var(--green);background:var(--green2);}
+.sc-link svg{width:12px;height:12px;flex-shrink:0;}
+.sc-link.map:hover{border-color:var(--gold);color:var(--gold);background:rgba(200,168,75,.1);}
+
+/* ════════════════════════════════════════
+   CLOSING MESSAGE
+════════════════════════════════════════ */
+#closing{
+  position:relative;overflow:hidden;
+  padding:clamp(72px,10vh,120px) clamp(24px,4vw,60px);
+}
+.cl-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400&q=80') center 40%/cover no-repeat;
+  filter:brightness(.2) saturate(.6);
+}
+.cl-inner{position:relative;z-index:2;max-width:680px;}
+.cl-icon{font-size:48px;margin-bottom:20px;}
+.cl-t{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(28px,5vw,58px);font-weight:300;
+  color:var(--paper);line-height:1.15;margin-bottom:18px;
+}
+.cl-t em{font-style:italic;color:var(--green);}
+.cl-p{font-size:14px;color:var(--mid);line-height:1.95;margin-bottom:12px;}
+.cl-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid rgba(93,184,122,.3);
+  padding:10px 20px;margin-top:16px;
+  font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--green);
+}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer{
+  padding:clamp(40px,6vh,60px) clamp(24px,4vw,60px) 28px;
+  background:#040404;border-top:1px solid var(--line);
+  position:relative;z-index:1;
+}
+.ft-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:32px;}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--paper);}
+.ft-logo span{color:var(--green);}
+.ft-desc{font-size:11px;color:var(--dim);line-height:1.8;max-width:280px;margin-top:8px;}
+.ft-links{display:flex;flex-direction:column;gap:4px;}
+.ft-lnk{display:block;font-size:11px;color:var(--dim);padding:3px 0;cursor:pointer;transition:color .2s;}
+.ft-lnk:hover{color:var(--paper);}
+.ft-btm{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--line);font-size:10px;color:rgba(234,230,222,.15);}
+
+/* ════════════════════════════════════════
+   BACK TO TOP
+════════════════════════════════════════ */
+#btt{
+  position:fixed;bottom:26px;right:26px;z-index:200;
+  width:40px;height:40px;
+  border:1px solid var(--line);background:rgba(7,7,7,.85);backdrop-filter:blur(12px);
+  color:var(--dim);font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;pointer-events:none;
+  transition:opacity .3s,border-color .3s,color .3s;
+}
+#btt.show{opacity:1;pointer-events:all;}
+#btt:hover{border-color:var(--green);color:var(--green);}
+
+/* ════════════════════════════════════════
+   RESPONSIVE — MOBILE
+════════════════════════════════════════ */
+@media(max-width:900px){
+  #sidebar{display:none;}
+  #topbar{display:flex;}
+  #main{margin-left:0;padding-top:var(--topbar-h);}
+  .shop-card{grid-template-columns:1fr;}
+  .shop-card.reverse{direction:ltr;}
+  .sc-img-wrap{min-height:220px;height:220px;}
+  .sc-img{position:absolute;}
+}
+@media(max-width:540px){
+  .rank-price{display:none;}
+  .sc-links{gap:6px;}
+  .sc-link{font-size:9px;padding:4px 9px;}
+  .ft-top{flex-direction:column;}
+  .ft-btm{flex-direction:column;gap:4px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ════ DESKTOP SIDEBAR ════ -->
+<aside id="sidebar">
+  <div class="sb-logo">
+    <div class="sb-logo-mark">CBD<span>Salad</span></div>
+    <div class="sb-logo-sub">Singapore · Marina One Area</div>
+  </div>
+
+  <div class="sb-section">ランキング</div>
+  <nav class="sb-nav">
+    <div class="sb-item active" onclick="goTo('shop1')" data-target="shop1">
+      <span class="sb-num">1</span>
+      <div class="sb-name">Supergreen</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop2')" data-target="shop2">
+      <span class="sb-num">2</span>
+      <div class="sb-name">The Daily Cut</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop3')" data-target="shop3">
+      <span class="sb-num">3</span>
+      <div class="sb-name">SaladStop!</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop4')" data-target="shop4">
+      <span class="sb-num">4</span>
+      <div class="sb-name">The Harvest</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop5')" data-target="shop5">
+      <span class="sb-num">5</span>
+      <div class="sb-name">Crunch Salad</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop6')" data-target="shop6">
+      <span class="sb-num">6</span>
+      <div class="sb-name">Super Simple</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop7')" data-target="shop7">
+      <span class="sb-num">7</span>
+      <div class="sb-name">Grain Traders</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop8')" data-target="shop8">
+      <span class="sb-num">8</span>
+      <div class="sb-name">Sousfully</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop9')" data-target="shop9">
+      <span class="sb-num">9</span>
+      <div class="sb-name">Thai Bowl</div>
+    </div>
+    <div class="sb-item" onclick="goTo('shop10')" data-target="shop10">
+      <span class="sb-num">10</span>
+      <div class="sb-name">The Salad Corner</div>
+    </div>
+  </nav>
+
+  <div class="sb-footer">
+    📍 Marina One近辺<br>
+    CBD エリア限定<br>
+    <span style="color:var(--green);">月〜金 ランチ向け</span>
+  </div>
+</aside>
+
+<!-- ════ MOBILE TOPBAR ════ -->
+<header id="topbar">
+  <div class="tb-logo">CBD<span>Salad</span> 10選</div>
+  <button id="tb-toggle" onclick="toggleDrawer()">☰</button>
+</header>
+<div id="mob-drawer">
+  <div class="dr-item" onclick="goTo('shop1')"><span class="dr-num">1</span><span>Supergreen</span></div>
+  <div class="dr-item" onclick="goTo('shop2')"><span class="dr-num">2</span><span>The Daily Cut</span></div>
+  <div class="dr-item" onclick="goTo('shop3')"><span class="dr-num">3</span><span>SaladStop!</span></div>
+  <div class="dr-item" onclick="goTo('shop4')"><span class="dr-num">4</span><span>The Harvest</span></div>
+  <div class="dr-item" onclick="goTo('shop5')"><span class="dr-num">5</span><span>Crunch Salad</span></div>
+  <div class="dr-item" onclick="goTo('shop6')"><span class="dr-num">6</span><span>Super Simple</span></div>
+  <div class="dr-item" onclick="goTo('shop7')"><span class="dr-num">7</span><span>Grain Traders</span></div>
+  <div class="dr-item" onclick="goTo('shop8')"><span class="dr-num">8</span><span>Sousfully</span></div>
+  <div class="dr-item" onclick="goTo('shop9')"><span class="dr-num">9</span><span>Thai Bowl</span></div>
+  <div class="dr-item" onclick="goTo('shop10')"><span class="dr-num">10</span><span>The Salad Corner</span></div>
+</div>
+
+<!-- ════ MAIN ════ -->
+<main id="main">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div id="hero-bg"></div>
+    <div class="h-grad"></div>
+    <div class="h-inner">
+      <div class="h-eyebrow rv in">Singapore CBD · Healthy Eats Guide</div>
+      <h1 class="hero-t rv in d1">
+        シンガポール<br>CBDエリアの<br><em>おすすめ</em><br>サラダボール<br>スポット10選
+      </h1>
+      <p class="hero-sub rv in d2">Marina One 近辺 · ランチ完全攻略</p>
+      <div class="hero-stats rv in d3">
+        <div class="hs"><div class="hs-v">10</div><div class="hs-l">厳選店舗</div></div>
+        <div class="hs"><div class="hs-v">S$6〜18</div><div class="hs-l">価格帯</div></div>
+        <div class="hs"><div class="hs-v">CBD</div><div class="hs-l">Marina One周辺</div></div>
+      </div>
+      <div class="scroll-hint rv in d4"><div class="scl"></div><span>Scroll</span></div>
+    </div>
+  </section>
+
+  <!-- RANKING LIST -->
+  <section id="ranking" class="sec">
+    <div class="rv"><div class="sec-lbl">Top 10 Salad Bowls</div></div>
+    <div class="rv d1"><h2 class="sec-t">10店舗<em>一覧</em></h2></div>
+    <div class="rv d2"><p class="sec-sub">CBD × Marina One エリア — ランキング一覧</p></div>
+    <div class="rv d2"><div class="sec-rule"></div></div>
+
+    <div class="rank-list">
+      <a href="#shop1" class="rank-item rv" onclick="closeDr()">
+        <div class="rank-no">1</div>
+        <div class="rank-info">
+          <div class="rank-name">Supergreen</div>
+          <div class="rank-desc">CBD定番。ボリューム多め・カスタム自由でバランス良い ⭐ 4.3</div>
+        </div>
+        <div class="rank-price">S$10〜13</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop2" class="rank-item rv d1" onclick="closeDr()">
+        <div class="rank-no">2</div>
+        <div class="rank-info">
+          <div class="rank-name">The Daily Cut</div>
+          <div class="rank-desc">肉が主役。ステーキ・サーモンなど高タンパク系</div>
+        </div>
+        <div class="rank-price">S$10〜15</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop3" class="rank-item rv d2" onclick="closeDr()">
+        <div class="rank-no">3</div>
+        <div class="rank-info">
+          <div class="rank-name">SaladStop!</div>
+          <div class="rank-desc">シンガポール最大級チェーン。メニュー豊富で安定 ⭐ 4.5</div>
+        </div>
+        <div class="rank-price">S$10〜15</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop4" class="rank-item rv" onclick="closeDr()">
+        <div class="rank-no">4</div>
+        <div class="rank-info">
+          <div class="rank-name">The Harvest</div>
+          <div class="rank-desc">グレイン系・ヘルシー志向。女性人気高い ⭐ 4.3</div>
+        </div>
+        <div class="rank-price">S$10〜18</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop5" class="rank-item rv d1" onclick="closeDr()">
+        <div class="rank-no">5</div>
+        <div class="rank-info">
+          <div class="rank-name">Crunch Salad</div>
+          <div class="rank-desc">格安＆スピード提供。ランチ時短向き ⭐ 4.9</div>
+        </div>
+        <div class="rank-price">S$6〜10</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop6" class="rank-item rv d2" onclick="closeDr()">
+        <div class="rank-no">6</div>
+        <div class="rank-info">
+          <div class="rank-name">Super Simple</div>
+          <div class="rank-desc">シンプル素材で飽きない。玄人リピート多い</div>
+        </div>
+        <div class="rank-price">S$9〜11</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop7" class="rank-item rv" onclick="closeDr()">
+        <div class="rank-no">7</div>
+        <div class="rank-info">
+          <div class="rank-name">Grain Traders</div>
+          <div class="rank-desc">グレイン＋サラダの完成度が高い "意識高い系" ⭐ 4.4</div>
+        </div>
+        <div class="rank-price">S$12〜18</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop8" class="rank-item rv d1" onclick="closeDr()">
+        <div class="rank-no">8</div>
+        <div class="rank-info">
+          <div class="rank-name">Sousfully</div>
+          <div class="rank-desc">低温調理（sous vide）肉が強い高品質系 ⭐ 4.8</div>
+        </div>
+        <div class="rank-price">S$12〜18</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop9" class="rank-item rv d2" onclick="closeDr()">
+        <div class="rank-no">9</div>
+        <div class="rank-info">
+          <div class="rank-name">Thai Bowl by Thai Salad Bowl</div>
+          <div class="rank-desc">タイ風サラダで味がしっかり（飽き対策）⭐ 4.8</div>
+        </div>
+        <div class="rank-price">S$8〜12</div>
+        <div class="rank-arrow">→</div>
+      </a>
+      <a href="#shop10" class="rank-item rv" onclick="closeDr()">
+        <div class="rank-no">10</div>
+        <div class="rank-info">
+          <div class="rank-name">The Salad Corner</div>
+          <div class="rank-desc">CBD最安クラス。量が多くコスパ抜群 ⭐ 4.1</div>
+        </div>
+        <div class="rank-price">S$6〜10</div>
+        <div class="rank-arrow">→</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ SHOP DETAILS ════ -->
+  <section class="sec-alt" style="padding-bottom:4px;">
+    <div class="rv"><div class="sec-lbl">Shop Details</div></div>
+    <div class="rv d1"><h2 class="sec-t">各店舗<em>詳細</em></h2></div>
+    <div class="rv d2"><p class="sec-sub">写真・特徴・価格・アクセスをまとめてチェック</p></div>
+    <div class="rv d2"><div class="sec-rule"></div></div>
+  </section>
+
+  <!-- 1 Supergreen -->
+  <div id="shop1" class="shop-card rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80" alt="Salad bowl colorful vegetables" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">01</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">CBD定番 / カスタム自由</div>
+        <div class="sc-name">Supergreen</div>
+        <div class="sc-rating">
+          <div class="stars">
+            <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+          </div>
+          <span class="sc-rating-val">4.3</span>
+        </div>
+        <p class="sc-desc">CBDで最もバランスが取れた"標準サラダ"の代名詞。ボリュームたっぷりのカスタムサラダが人気で、ベースのグリーンから選べるトッピングまで自由自在。ヘルシー初心者からサラダ通まで幅広い支持を集めるCBDの王道スポット。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$10 〜 S$13</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=18+Cross+St+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          地図
+        </a>
+        <a href="https://www.instagram.com/supergreensg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.facebook.com/supergreensg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 The Daily Cut -->
+  <div id="shop2" class="shop-card reverse rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=80" alt="Protein bowl steak salmon healthy" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">02</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">高タンパク / プロテイン特化</div>
+        <div class="sc-name">The Daily Cut</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.2</span>
+        </div>
+        <p class="sc-desc">「肉が主役のサラダボウル」として知られる存在感のある一店。ステーキ・サーモン・チキンなど質の高いタンパク質を前面に出したメニュー構成が特徴。筋トレ後や高タンパクな食事を求めるビジネスパーソンに特に好評。ランチタイムは混雑するため早めの来店が吉。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$10 〜 S$15</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=7+Wallich+St+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/thedailycutsg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <a href="https://www.facebook.com/thedailycutsg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 SaladStop! -->
+  <div id="shop3" class="shop-card rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&q=80" alt="Salad bowl fresh colorful ingredients" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">03</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">最大手チェーン / 安定感◎</div>
+        <div class="sc-name">SaladStop!</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.5</span>
+        </div>
+        <p class="sc-desc">シンガポール最大級のサラダチェーン。CBDで最も普及しているサラダブランドとして知られ、豊富なメニューと安定したクオリティが最大の強み。ラップ・クロワッサン・ボウルと選択肢も多い。初めてサラダボウルを試す方にも安心して訪れられる一店。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$10 〜 S$15</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=One+George+Street+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/saladstop/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <a href="https://www.facebook.com/saladstop/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 The Harvest -->
+  <div id="shop4" class="shop-card reverse rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1607532941433-304659e8198a?w=800&q=80" alt="Grain bowl healthy wholesome" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">04</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">グレイン系 / 女性人気</div>
+        <div class="sc-name">The Harvest</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.3</span>
+        </div>
+        <p class="sc-desc">キヌア・玄米・ファッロなどのグレイン（穀物）を主役に据えた栄養バランス重視のボウル専門店。体に優しい素材へのこだわりが女性ビジネスパーソンから熱い支持を集めている。Shenton Way直近でアクセスも良好。シーズナルな食材を積極的に取り入れる姿勢も好評。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$10 〜 S$18</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=6A+Shenton+Way+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/theharvestsg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Facebook なし</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 Crunch Salad -->
+  <div id="shop5" class="shop-card rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80" alt="Quick affordable salad lunch" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">05</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">格安 / スピード / S$6〜</div>
+        <div class="sc-name">Crunch Salad</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.9</span>
+        </div>
+        <p class="sc-desc">CBD最安クラスのS$6〜でサラダボウルが楽しめるコスパ最強店。Maxwell Road近辺にあり、ランチ時短を求めるビジネスパーソンのニーズをしっかり捉えている。スピーディな提供とシンプルながら満足感のある内容で評価が高い。財布に優しいランチを探しているなら迷わず訪れたい。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$6 〜 S$10</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=120+Maxwell+Road+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Instagram なし</span>
+        <a href="https://www.facebook.com/crunchsalad/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 Super Simple -->
+  <div id="shop6" class="shop-card reverse rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1543352634-99a5d50ae78e?w=800&q=80" alt="Simple clean salad minimal ingredients" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">06</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">シンプル素材 / 玄人リピーター</div>
+        <div class="sc-name">Super Simple</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.2</span>
+        </div>
+        <p class="sc-desc">その名の通り、シンプルを極めた素材使いで食べ飽きない日常使いが強み。Telok Ayerエリアに位置し、派手さはないが地元のビジネスパーソンによるリピート率が高い隠れた名店。毎日食べても飽きない設計が最大の魅力で、週5回サラダを食べる上級者からの支持が厚い。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$9 〜 S$11</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=Super+Simple+Telok+Ayer+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/supersimplesg/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Facebook なし</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 Grain Traders -->
+  <div id="shop7" class="shop-card rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1529059997568-3d847b1154f0?w=800&q=80" alt="Grain bowl healthy cafe premium" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">07</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">意識高い系 / グレイン完成度◎</div>
+        <div class="sc-name">Grain Traders</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.4</span>
+        </div>
+        <p class="sc-desc">グレイン（穀物）とサラダの組み合わせを高次元で完成させたヘルシーダイニング。Market Street沿いに位置し、食材・ドレッシング・トッピングの完成度が業界随一と評される。単なるサラダを超えた「食としての満足感」を重視した設計が、食に一家言あるビジネスパーソンから熱い支持を受ける。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$12 〜 S$18</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=138+Market+Street+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/graintraders/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <a href="https://www.facebook.com/graintraders/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 Sousfully -->
+  <div id="shop8" class="shop-card reverse rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1580013759032-c96505e24c1f?w=800&q=80" alt="Sous vide protein salad premium bowl" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">08</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">低温調理 / 高品質タンパク</div>
+        <div class="sc-name">Sousfully</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.8</span>
+        </div>
+        <p class="sc-desc">名前の通りスー・ビッド（sous vide＝低温真空調理）で仕上げた肉の柔らかさと旨みが圧倒的。Upper Cross Streetに位置し、ランチの質にこだわりを持つCBDのプロフェッショナルたちに特別な支持を集める。ほかのサラダボウルとは一線を画す高品質の調理技術が体験できる稀有な店。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$12 〜 S$18</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=531+Upper+Cross+Street+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <a href="https://www.instagram.com/sousfully/" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Facebook なし</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9 Thai Bowl -->
+  <div id="shop9" class="shop-card rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1534482421-64566f976cfa?w=800&q=80" alt="Thai salad bowl spicy flavors" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">09</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">タイ風 / 味がしっかり</div>
+        <div class="sc-name">Thai Bowl by Thai Salad Bowl</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.8</span>
+        </div>
+        <p class="sc-desc">毎日サラダが続くと味に飽きてくる——そんな悩みを解消する「飽き対策サラダ」の本命。タイ料理ならではのハーブとスパイスを活かしたドレッシングとトッピングが個性的。Gopeng Street近辺に位置し、ランチの選択肢に変化を求めるリピーターが多数訪れる人気スポット。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$8 〜 S$12</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=12+Gopeng+Street+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Instagram なし</span>
+        <a href="https://www.facebook.com/thaisaladbowlsg" target="_blank" rel="noopener" class="sc-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 The Salad Corner -->
+  <div id="shop10" class="shop-card reverse rv">
+    <div class="sc-img-wrap">
+      <img class="sc-img" src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&q=80" alt="Salad corner budget value Singapore" loading="lazy">
+      <div class="sc-img-overlay"></div>
+      <div class="sc-num-badge">10</div>
+      <div class="sc-credit">Unsplash CC0</div>
+    </div>
+    <div class="sc-body">
+      <div>
+        <div class="sc-lbl">最安クラス / コスパ最強</div>
+        <div class="sc-name">The Salad Corner</div>
+        <div class="sc-rating">
+          <div class="stars"><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span></div>
+          <span class="sc-rating-val">4.1</span>
+        </div>
+        <p class="sc-desc">CBD最安クラスの価格帯でありながら驚きのボリュームを誇るコスパの王者。Cecil Street近辺に位置し、ランチタイムには長蛇の列ができることでも有名（DanielFoodDiary.com等でも紹介）。財布を気にせずしっかりした食事をとりたいCBDワーカーのランチの強い味方として定着している。</p>
+        <div class="sc-price-row">
+          <div class="sc-price">S$6 〜 S$10</div>
+        </div>
+      </div>
+      <div class="sc-links">
+        <a href="https://maps.google.com/?q=20+Cecil+Street+Singapore" target="_blank" rel="noopener" class="sc-link map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>地図
+        </a>
+        <span style="font-size:10px;color:var(--dim);padding:5px 0;align-self:center;">Instagram / Facebook なし</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING MESSAGE -->
+  <section id="closing">
+    <div class="cl-bg"></div>
+    <div class="cl-inner">
+      <div class="cl-icon rv">🥗</div>
+      <h2 class="cl-t rv d1">
+        毎日のサラダが、<br>あなたの<em>パフォーマンス</em>を<br>変える。
+      </h2>
+      <p class="cl-p rv d2">シンガポールCBDのビジネス環境は世界最高水準——そんな環境で最高のアウトプットを出し続けるために、ランチの選択は想像以上に重要です。</p>
+      <p class="cl-p rv d3">野菜・穀物・良質なタンパク質を一皿に凝縮したサラダボウルは、午後の集中力と体のコンディションを整える最高のビジネスランチ。Marina One周辺には、ワーカーの健康と生産性を支えるために磨き上げられた店が10店揃っています。</p>
+      <p class="cl-p rv" style="font-style:italic;color:var(--green);font-size:15px;">今日のランチ、どのサラダにしますか？</p>
+      <div class="cl-badge rv">
+        <span>🌿</span>
+        <span>Eat Green · Stay Sharp · Work Better</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="ft-top">
+      <div>
+        <div class="ft-logo">CBD<span>Salad</span> Guide</div>
+        <p class="ft-desc">シンガポールCBD・Marina One周辺のサラダボウルを厳選した、ビジネスパーソン向けヘルシーランチガイド。</p>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">Quick Links</div>
+        <div class="ft-links">
+          <span class="ft-lnk" onclick="goTo('shop1')">① Supergreen</span>
+          <span class="ft-lnk" onclick="goTo('shop2')">② The Daily Cut</span>
+          <span class="ft-lnk" onclick="goTo('shop3')">③ SaladStop!</span>
+          <span class="ft-lnk" onclick="goTo('shop4')">④ The Harvest</span>
+          <span class="ft-lnk" onclick="goTo('shop5')">⑤ Crunch Salad</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--green);margin-bottom:10px;">&nbsp;</div>
+        <div class="ft-links">
+          <span class="ft-lnk" onclick="goTo('shop6')">⑥ Super Simple</span>
+          <span class="ft-lnk" onclick="goTo('shop7')">⑦ Grain Traders</span>
+          <span class="ft-lnk" onclick="goTo('shop8')">⑧ Sousfully</span>
+          <span class="ft-lnk" onclick="goTo('shop9')">⑨ Thai Bowl</span>
+          <span class="ft-lnk" onclick="goTo('shop10')">⑩ The Salad Corner</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-btm">
+      <span>© 2025 Singapore CBD Salad Guide</span>
+      <span>Images: Unsplash CC0 License</span>
+    </div>
+  </footer>
+
+</main><!-- /main -->
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ── Hero BG ── */
+window.addEventListener('load',()=>document.getElementById('hero-bg').classList.add('rdy'));
+
+/* ── BTT ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('btt').classList.toggle('show',window.scrollY>500);
+  updateSidebar();
+});
+
+/* ── Mobile drawer ── */
+function toggleDrawer(){
+  document.getElementById('mob-drawer').classList.toggle('open');
+  document.getElementById('tb-toggle').textContent =
+    document.getElementById('mob-drawer').classList.contains('open') ? '✕' : '☰';
+}
+function closeDr(){
+  document.getElementById('mob-drawer').classList.remove('open');
+  document.getElementById('tb-toggle').textContent = '☰';
+}
+document.addEventListener('click', e=>{
+  const d=document.getElementById('mob-drawer');
+  const t=document.getElementById('tb-toggle');
+  if(d.classList.contains('open') && !d.contains(e.target) && !t.contains(e.target)){
+    closeDr();
+  }
+});
+
+/* ── Scroll to shop ── */
+function goTo(id){
+  const el=document.getElementById(id);
+  if(!el)return;
+  const offset=document.getElementById('topbar')?.offsetHeight||0;
+  const top=el.getBoundingClientRect().top + window.scrollY - offset - 20;
+  window.scrollTo({top,behavior:'smooth'});
+  closeDr();
+}
+
+/* ── Sidebar active state ── */
+function updateSidebar(){
+  const ids=['shop1','shop2','shop3','shop4','shop5','shop6','shop7','shop8','shop9','shop10'];
+  let active=ids[0];
+  ids.forEach(id=>{
+    const el=document.getElementById(id);
+    if(el && el.getBoundingClientRect().top < window.innerHeight*0.4) active=id;
+  });
+  document.querySelectorAll('.sb-item').forEach(item=>{
+    item.classList.toggle('active', item.dataset.target===active);
+  });
+}
+
+/* ── Reveal observer ── */
+const rvEls=document.querySelectorAll('.rv,.rl');
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.08});
+rvEls.forEach(el=>{if(!el.classList.contains('in'))ro.observe(el);});
+</script>
+</body>
+</html>
